@@ -2,3 +2,4 @@ Banana_Linux
 Banana.app
 .ipynb_checkpoints
 unity-environment.log
+__pycache__
