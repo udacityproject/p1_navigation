@@ -49,8 +49,12 @@ class Agent():
     def load_model(self, path="model_weights.pt"):
         self.qnetwork_local.load_state_dict(torch.load(path))
         self.qnetwork_local.to(device)
+        self.qnetwork_local.eval()
+        
         self.qnetwork_target.load_state_dict(torch.load(path))
         self.qnetwork_target.to(device)
+        self.qnetwork_target.eval()
+
         self.optimizer = optim.Adam(self.qnetwork_local.parameters(), lr=LR) 
 
     def step(self, state, action, reward, next_state, done):
